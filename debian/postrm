@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -e
+
+case "$1" in
+    purge|remove)
+        # Get actual user
+        if [ -n "$SUDO_USER" ]; then
+            ACTUAL_USER="$SUDO_USER"
+            ACTUAL_HOME=$(eval echo ~$SUDO_USER)
+        else
+            ACTUAL_USER="${USER:-$(whoami)}"
+            ACTUAL_HOME="${HOME:-$(eval echo ~$ACTUAL_USER)}"
+        fi
+
+        # Stop and disable systemd services
+        if [ -n "$ACTUAL_USER" ]; then
+            su - "$ACTUAL_USER" -c "systemctl --user stop appimage-installer.path" 2>/dev/null || true
+            su - "$ACTUAL_USER" -c "systemctl --user disable appimage-installer.path" 2>/dev/null || true
+            su - "$ACTUAL_USER" -c "systemctl --user daemon-reload" 2>/dev/null || true
+        fi
+
+        # Remove systemd files
+        rm -f "$ACTUAL_HOME/.config/systemd/user/appimage-installer.service"
+        rm -f "$ACTUAL_HOME/.config/systemd/user/appimage-installer.path"
+
+        # Remove configuration on purge
+        if [ "$1" = "purge" ]; then
+            rm -f /etc/appimage-autoinstaller.conf
+        fi
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

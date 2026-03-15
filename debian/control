@@ -1,0 +1,22 @@
+Source: appimage-autoinstaller
+Section: utils
+Priority: optional
+Maintainer: Roshan <roshan@example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.0
+Homepage: https://github.com/yourusername/appimage-autoinstaller
+
+Package: appimage-autoinstaller
+Architecture: all
+Depends: ${misc:Depends}, systemd, bash (>= 4.0)
+Description: Automatic AppImage installer with systemd integration
+ Automatically monitors a specified directory for AppImage files and installs
+ them to a configured location. Extracts icons and creates desktop entries
+ for seamless integration with your application launcher.
+ .
+ Features:
+  - Automatic installation on file download/move
+  - Manual sync command (appimage-sync)
+  - Configurable watch and install directories
+  - Systemd integration for zero overhead
+  - Automatic icon and desktop entry creation

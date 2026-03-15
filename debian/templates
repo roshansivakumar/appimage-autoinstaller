@@ -1,0 +1,13 @@
+Template: appimage-autoinstaller/watch-directory
+Type: string
+Default: /home/USER/Downloads/Installers
+Description: Directory to watch for AppImage files
+ Enter the full path to the directory where AppImage files will be downloaded.
+ This directory will be monitored for new .AppImage files.
+
+Template: appimage-autoinstaller/install-directory
+Type: string
+Default: /opt/appimages
+Description: Directory to install AppImages
+ Enter the full path where AppImage files should be installed.
+ This directory will store all installed AppImage files.

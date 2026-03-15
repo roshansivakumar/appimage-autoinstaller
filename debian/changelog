@@ -1,0 +1,9 @@
+appimage-autoinstaller (1.0.0) stable; urgency=medium
+
+  * Initial release
+  * Automatic AppImage installation with systemd integration
+  * Configurable watch and install directories
+  * Desktop entry and icon extraction
+  * Manual sync command
+
+ -- Roshan <roshan@example.com>  Sun, 15 Mar 2026 16:00:00 -0400

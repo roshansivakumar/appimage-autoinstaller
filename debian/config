@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+# Replace USER placeholder with actual username
+if [ -n "$SUDO_USER" ]; then
+    USERNAME="$SUDO_USER"
+else
+    USERNAME="${USER:-$(whoami)}"
+fi
+
+# Get user's home directory
+USER_HOME=$(eval echo ~$USERNAME)
+
+# Set default watch directory with actual username
+db_get appimage-autoinstaller/watch-directory || true
+DEFAULT_WATCH="${RET:-$USER_HOME/Downloads/Installers}"
+db_set appimage-autoinstaller/watch-directory "$DEFAULT_WATCH"
+
+# Ask for watch directory
+db_input high appimage-autoinstaller/watch-directory || true
+db_go || true
+
+# Ask for install directory
+db_input high appimage-autoinstaller/install-directory || true
+db_go || true

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Manual command to scan and install AppImages
+
+echo "🔍 Scanning for uninstalled AppImages..."
+/usr/local/bin/appimage-installer.sh
