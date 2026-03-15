@@ -1,4 +1,4 @@
-appimage-autoinstaller (1.0.0) stable; urgency=medium
+appimage-autoinstaller (1.0.0) noble; urgency=medium
 
   * Initial release
   * Automatic AppImage installation with systemd integration
