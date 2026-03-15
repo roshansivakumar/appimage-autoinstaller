@@ -1,10 +1,10 @@
 Source: appimage-autoinstaller
 Section: utils
 Priority: optional
-Maintainer: Roshan <roshan@example.com>
+Maintainer: Roshan Sivakumar <roshan@roshansivakumar.com>
 Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.6.0
-Homepage: https://github.com/yourusername/appimage-autoinstaller
+Homepage: https://github.com/roshansivakumar/appimage-autoinstaller
 
 Package: appimage-autoinstaller
 Architecture: all

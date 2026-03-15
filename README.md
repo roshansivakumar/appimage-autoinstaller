@@ -14,19 +14,19 @@ Automatically monitor a directory for AppImage files and install them with full 
 
 ## Installation
 
-### From PPA (Recommended)
+### From PPA (Coming Soon)
 
 ```bash
-sudo add-apt-repository ppa:yourusername/appimage-autoinstaller
+sudo add-apt-repository ppa:roshansivakumar/appimage-autoinstaller
 sudo apt update
 sudo apt install appimage-autoinstaller
 ```
 
-### From .deb Package
+### From .deb Package (Recommended)
 
 ```bash
 # Download the latest .deb from releases
-wget https://github.com/yourusername/appimage-autoinstaller/releases/download/v1.0.0/appimage-autoinstaller_1.0.0_all.deb
+wget https://github.com/roshansivakumar/appimage-autoinstaller/releases/download/v1.0.0/appimage-autoinstaller_1.0.0_all.deb
 
 # Install
 sudo dpkg -i appimage-autoinstaller_1.0.0_all.deb
@@ -36,7 +36,7 @@ sudo apt-get install -f  # Fix any dependency issues
 ### Build from Source
 
 ```bash
-git clone https://github.com/yourusername/appimage-autoinstaller.git
+git clone https://github.com/roshansivakumar/appimage-autoinstaller.git
 cd appimage-autoinstaller
 dpkg-buildpackage -us -uc -b
 sudo dpkg -i ../appimage-autoinstaller_1.0.0_all.deb
