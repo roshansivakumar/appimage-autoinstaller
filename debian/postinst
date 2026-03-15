@@ -57,7 +57,7 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/appimage-installer.sh
+ExecStart=/usr/bin/appimage-installer.sh
 StandardOutput=journal
 StandardError=journal
 

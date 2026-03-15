@@ -1,2 +1,2 @@
-usr/local/bin/appimage-installer.sh usr/local/bin/
-usr/local/bin/appimage-sync usr/local/bin/
+usr/bin/appimage-installer.sh usr/bin/
+usr/bin/appimage-sync usr/bin/
