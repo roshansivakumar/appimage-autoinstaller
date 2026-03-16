@@ -97,13 +97,15 @@ EOF
     echo "✓ Installed: $filename"
 }
 
-# Scan watch directory for AppImages
+# Scan watch directory for AppImages (both .AppImage and .appimage)
 found=0
-for appimage in "$WATCH_DIR"/*.AppImage; do
+shopt -s nullglob  # Don't expand pattern if no matches
+for appimage in "$WATCH_DIR"/*.AppImage "$WATCH_DIR"/*.appimage; do
     [ -f "$appimage" ] || continue
     install_appimage "$appimage"
     found=1
 done
+shopt -u nullglob  # Reset to default
 
 if [ $found -eq 0 ]; then
     echo "No AppImages found in $WATCH_DIR"
