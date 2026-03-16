@@ -52,3 +52,24 @@
 - [ ] Update detection for AppImages
 - [ ] Logging of installation history
 - [ ] Support for AppImage version management
+
+### Case-Insensitive AppImage Detection
+
+**Problem:** Script only finds `*.AppImage` (uppercase), not `*.appimage` (lowercase)
+
+**Impact:** Files like `nrfconnect-5.1.0-x86_64.appimage` are ignored
+
+**Solution:**
+```bash
+# Current (only uppercase):
+for appimage in "$WATCH_DIR"/*.AppImage; do
+
+# Better (both cases):
+shopt -s nullglob  # Don't expand if no matches
+for appimage in "$WATCH_DIR"/*.AppImage "$WATCH_DIR"/*.appimage; do
+    [ -f "$appimage" ] || continue
+    install_appimage "$appimage"
+done
+```
+
+**Target:** v1.0.2
